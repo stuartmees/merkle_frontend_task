@@ -9,8 +9,6 @@ def home():
 @app.route('/api/clients', methods=['GET'])
 def get_clients():
 
-    print('in get_clients still')
-
     r = requests.get('https://europe-west2-mpx-tools-internal.cloudfunctions.net/frontend-mock-api/clients')
 
     clients = r.json()
@@ -18,3 +16,16 @@ def get_clients():
     print(clients)
 
     return json.dumps(clients), 200
+
+@app.route('/api/clients/<int:client_id>', methods=['GET'])
+def get_profile(client_id):
+
+    r = requests.get('https://europe-west2-mpx-tools-internal.cloudfunctions.net/frontend-mock-api/clients/'+str(client_id))
+
+    client_profile = r.json()
+
+    print(client_profile)
+
+    return json.dumps(client_profile), 200
+
+
