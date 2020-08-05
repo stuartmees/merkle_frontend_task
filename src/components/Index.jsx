@@ -2,22 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux'
 import IndexItem from './IndexItem';
 
-class Index extends React.Component {
+const Index = (props) => {
 
-    constructor(){
-        super()
-        this.state = {
-        }
-      }
+    return(
+        <div className="index">
+            <h1>Client Index</h1>
+            {props.clients.map(client => <IndexItem client={client} key={client.id}/>)}
+        </div>
+    )
 
-    render() {
-        return(
-            <div className="index">
-                <h1>Client Index</h1>
-                {this.props.clients.map(client => <IndexItem client={client} key={client.id}/>)}
-            </div>
-        ) 
-    }
 }
 
 const mapStateToProps = (state) => {

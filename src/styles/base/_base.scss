@@ -1,9 +1,13 @@
 html {
-    background-color: $color-bg;
+    background-color: $color-bg-dark;
 }
 
 h1, h2 {
     font-family: $font-header;
+}
+
+h1 {
+    font-weight: 400;
 }
 
 a, a:hover, a:focus, a:active {
