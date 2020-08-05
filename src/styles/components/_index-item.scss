@@ -1,0 +1,25 @@
+.index__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+    &:hover {
+        background-color: $color-bg-dark;
+    }
+    
+
+    h2 {
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}

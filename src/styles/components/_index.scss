@@ -4,26 +4,4 @@
     h1 {
         font-weight: 400;
     }
-
-    .index__item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center ;
-        height: 30px;
-        padding: 5px;
-        background-color: white;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        
-
-        h2 {
-            font-weight: 300;
-            font-size: 20px;
-        }
-
-        img {
-            height: 100%;
-            width: auto;
-        }
-    }
 }
