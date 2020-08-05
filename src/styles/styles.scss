@@ -1,5 +1,5 @@
-$brand-color: blue;
-
-* {
-    color: $brand-color
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@400;300&display=swap');
+@import './base/settings'; 
+@import './base/base'; 
+@import './components/navbar';
+@import './components/index';

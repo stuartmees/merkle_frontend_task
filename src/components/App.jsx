@@ -4,8 +4,12 @@ import { connect } from 'react-redux'
 
 import axios from 'axios';
 
+import 'normalize.css/normalize.css'
+import '../styles/styles.scss'
+
 import Index from './Index.jsx'
 import Profile from './Profile.jsx'
+import NavBar from './NavBar.jsx'
 import { startSetClients } from '../actions/clients.js'
 
 
@@ -36,6 +40,7 @@ class App extends React.Component {
         return(
             <Router>
                 <main>
+                    <NavBar />
                     <Switch>
                         <Route path="/index" component={Index} />
                         <Route path="/profile/:id" component={Profile} />
