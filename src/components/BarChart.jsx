@@ -56,9 +56,9 @@ class BarChart extends React.Component {
 
     render() {
         return (
-            <section className="chart">
+            <section className="bar-chart">
 
-                <header className="chart__header">
+                <header className="bar-chart__header">
                     <h2>Client Budget Spending</h2>
                     <FormControl component="fieldset">
                         <RadioGroup row aria-label="date-range" name="dateRange" value={this.state.dateRange} >
@@ -72,34 +72,36 @@ class BarChart extends React.Component {
 
 
                 {this.state.chartData && 
-                <ResponsiveBar
-                    data={this.state.chartData}
-                    keys={["cost"]}
-                    indexBy="dateLabel"
-                    margin={ 
-                        {
-                        "top": 50,
-                        "right": 60,
-                        "bottom": 100,
-                        "left": 80
+                <div className="chart">
+                    <ResponsiveBar
+                        data={this.state.chartData}
+                        keys={["cost"]}
+                        indexBy="dateLabel"
+                        margin={ 
+                            {
+                            "top": 50,
+                            "right": 60,
+                            "bottom": 100,
+                            "left": 80
+                            }
                         }
-                    }
-                    padding={0.3}
-                    colors='nivo'
-                    colorBy="id"
-                    borderColor="inherit:darker(1.6)"
-                    axisTop={null}
-                    axisRight={null}
-                    axisBottom={config.axisBottom}
-                    axisLeft={config.axisLeft}
-                    labelSkipWidth={12}
-                    labelSkipHeight={12}
-                    labelTextColor="inherit:darker(1.6)"
-                    animate={true}
-                    motionStiffness={90}
-                    motionDamping={15}
-                    enableLabel={false}
-                />
+                        padding={0.3}
+                        colors='nivo'
+                        colorBy="id"
+                        borderColor="inherit:darker(1.6)"
+                        axisTop={null}
+                        axisRight={null}
+                        axisBottom={config.axisBottom}
+                        axisLeft={config.axisLeft}
+                        labelSkipWidth={12}
+                        labelSkipHeight={12}
+                        labelTextColor="inherit:darker(1.6)"
+                        animate={true}
+                        motionStiffness={90}
+                        motionDamping={15}
+                        enableLabel={false}
+                    />
+                </div>
                 }
 
             </section>

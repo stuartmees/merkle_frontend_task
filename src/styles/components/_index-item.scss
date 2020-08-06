@@ -7,9 +7,14 @@
     background-color: white;
     border-radius: 5px;
     margin-bottom: 5px;
+    box-shadow: $panel-shadow;
 
     &:hover {
         background-color: $color-bg-dark;
+    }
+
+    &:active {
+        box-shadow: none;
     }
     
 

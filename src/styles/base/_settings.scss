@@ -11,6 +11,8 @@ $font-body: 'Open Sans', sans-serif;
 
 $border-radius: 5px;
 
+$panel-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
 
 @mixin container {
     width: 60vw;

@@ -1,29 +1,24 @@
-.chart {
+.bar-chart {
     margin-top: 50px;
-    height:50vh;
-    width:60vw;
     background: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: $panel-shadow;
     transition: 0.3s;
     border-radius: $border-radius;
 
-    svg {
-        fill: $color-primary;
-    }
-
-    .chart__header {
+    
+    .bar-chart__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        
         h2 {
             font-weight: 400;
             padding-left: 16px;
         }
     }
 
-    text {
-        font-family: $font-body !important;
+    svg {
+        fill: $color-primary;
     }
 
     .MuiTypography-body1 {
@@ -31,9 +26,20 @@
         font-family: $font-body;
     }
 
-    .PrivateSwitchBase-root-1 {
-        padding-right: 0px;
+    .chart{
+        height:50vh;
+        width:60vw;
+    
+        text {
+            font-family: $font-body !important;
+        }
+    
+    
+        .PrivateSwitchBase-root-1 {
+            padding-right: 0px;
+        }
     }
+    
 }
    
 .chart:hover {

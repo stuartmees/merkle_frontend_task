@@ -5,8 +5,8 @@ export default {
         "tickPadding": 0,
         "tickRotation": 90,
         "legend": "Date",
-        "legendPosition": "end",
-        "legendOffset": 32
+        "legendPosition": "middle",
+        "legendOffset": 50
     },
     axisLeft: {
         "tickSize": 5,
