@@ -12,9 +12,18 @@ $font-body: 'Open Sans', sans-serif;
 $border-radius: 5px;
 
 $panel-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+$panel-padding: 30px;
 
 
 @mixin container {
     width: 60vw;
-    margin: 0 auto;
+    margin: 100px auto;
   }
+
+@mixin panel {
+  margin-top: 50px;
+  background: white;
+  box-shadow: $panel-shadow;
+  border-radius: $border-radius;
+  padding: $panel-padding;
+}

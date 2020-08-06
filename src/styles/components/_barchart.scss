@@ -1,20 +1,12 @@
 .bar-chart {
-    margin-top: 50px;
-    background: white;
-    box-shadow: $panel-shadow;
+    @include panel;
+    
     transition: 0.3s;
-    border-radius: $border-radius;
-
     
     .bar-chart__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
-        h2 {
-            font-weight: 400;
-            padding-left: 16px;
-        }
     }
 
     svg {
@@ -24,6 +16,19 @@
     .MuiTypography-body1 {
         font-size: 10px;
         font-family: $font-body;
+    }
+
+    .MuiIconButton-root, .PrivateSwitchBase-root-1 {
+        padding: 0px;
+    }
+
+    .MuiTypography-root {
+        margin: 2px;
+    }
+
+    .MuiFormControlLabel-root {
+        margin-right: 0px;
+        margin-left: 11px;
     }
 
     .chart{
@@ -42,6 +47,3 @@
     
 }
    
-.chart:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}

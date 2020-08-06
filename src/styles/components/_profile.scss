@@ -2,15 +2,15 @@
     @include container;
 
     .profile__header {
+        @include panel;
+
         display: flex;
         justify-content: space-between;
         align-items: center ;
         height: 50px;
-        background-color: white;
-        border-radius: $border-radius;
-        margin-top: 50px;
-        padding: 10px;
-        box-shadow: $panel-shadow;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
 
         img {
             height: 100%;

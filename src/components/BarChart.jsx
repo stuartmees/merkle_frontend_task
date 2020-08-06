@@ -31,10 +31,7 @@ class BarChart extends React.Component {
         const chartData = reducedDataArray.map((item) => {
 
             const dateObj = new Date(item.date)
-
             const dateLabel = dateObj.toLocaleDateString('en-GB', {month:"short", day:"2-digit"})
-
-            console.log(dateLabel)
 
             return {
                 cost: item.cost,
@@ -44,13 +41,11 @@ class BarChart extends React.Component {
 
         })
 
-        this.setState({
-            chartData
-        }) 
+        this.setState({ chartData }) 
     }
 
     setDateRange = (dateRange) => {
-        this.setState({ dateRange }, this.getBarChartData() )
+        this.setState({ dateRange }, this.getBarChartData)
     }
 
 

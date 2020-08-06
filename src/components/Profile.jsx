@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { startSetProfile } from '../actions/profile.js'
 import BarChart from './BarChart'
+import Table from './Table'
 
 class Profile extends React.Component {
 
@@ -32,6 +33,8 @@ class Profile extends React.Component {
                 </header>
 
                 {this.props.profile && this.props.profile.data && <BarChart data={this.props.profile.data}/>}
+
+                {this.props.profile && this.props.profile.data && <Table data={this.props.profile.data}/>}
  
             </div>
 

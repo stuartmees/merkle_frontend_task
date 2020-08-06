@@ -1,7 +1,20 @@
 .nav-bar {
+    display: flex;
+    align-items: center;
     background-color: $color-primary;
-    display: fixed;
+    position: fixed;
     top:0px;
     width: 100vw;
     box-sizing: border-box;
+    height: 50px;
+    z-index: 5;
+
+    h1 {
+        font-family: $font-header;
+        font-weight: 500;
+        font-size: 30px;
+        letter-spacing: 2px;
+        color: palegoldenrod;
+        padding-left: 20px;
+    }
 }
