@@ -22,6 +22,10 @@
         }
     }
 
+    text {
+        font-family: $font-body !important;
+    }
+
     .MuiTypography-body1 {
         font-size: 10px;
         font-family: $font-body;

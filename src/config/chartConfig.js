@@ -2,15 +2,15 @@ export default {
 
     axisBottom: {
         "tickSize": 5,
-        "tickPadding": 5,
-        "tickRotation": 0,
+        "tickPadding": 0,
+        "tickRotation": 90,
         "legend": "Date",
-        "legendPosition": "middle",
+        "legendPosition": "end",
         "legendOffset": 32
     },
     axisLeft: {
         "tickSize": 5,
-        "tickPadding": 5,
+        "tickPadding": 0,
         "tickRotation": 0,
         "legend": "Cost (£)",
         "legendPosition": "middle",
