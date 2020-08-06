@@ -1,5 +1,9 @@
 import React from 'react'
 import { ResponsiveBar } from '@nivo/bar'
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 import config from '../config/chartConfig'
 
@@ -10,60 +14,64 @@ class BarChart extends React.Component {
     constructor(){
         super()
         this.state = {
-            chartRange: 30
+            dateRange: "7",
+            chartData: ''
         }
-      }
+    }
+
+    componentDidMount() {
+        this.getBarChartData()
+    }
 
 
-      getBarChartData = () => {
-            console.log('getBarChartData')
+    getBarChartData = () => {
 
-            let data
-            let delta
-            let splitArray = []
+        const reducedDataArray = this.props.data.slice(this.props.data.length-this.state.dateRange)
 
-            if (this.state.chartRange === 30) delta = 6;
-            if (this.state.chartRange === 7) delta = 1;
-            if (this.state.chartRange === 14) delta = 2;
+        const chartData = reducedDataArray.map((item) => {
 
-            const sections = this.state.chartRange / delta;
+            const dateObj = new Date(item.date)
 
-            for (let i=0; i<sections; i++) {
-                splitArray[i] = this.props.data.slice(i*delta,(i+1)*delta)
+            const dateLabel = dateObj.toLocaleDateString()
+
+            return {
+                cost: item.cost,
+                date: item.date,
+                dateLabel: dateLabel 
             }
 
-            const reducer = (total, item) => {
-                return total + item.cost
-            }
+        })
 
-            splitArray.forEach((item, index) => {
-                splitArray[index]['cost'] = item.reduce(reducer, 0)
-            })
+        this.setState({
+            chartData
+        }) 
+    }
 
-            data = splitArray.map((item) => {
-
-                const startDateObj = new Date(item[0].date)
-                const endDateObj = new Date(item[delta-1].date)
-
-                const dateLabel = startDateObj.toLocaleDateString() + '-' + endDateObj.toLocaleDateString()
-
-                return {
-                    cost: item.cost,
-                    date: item[0].date,
-                    dateLabel: dateLabel 
-                }
-
-            })
-
-            return data
+    setDateRange = (dateRange) => {
+        this.setState({ dateRange }, this.getBarChartData() )
     }
 
 
     render() {
         return (
-            <div className="chart">
+            <section className="chart">
+
+                <header className="chart__header">
+                    <h2>Client Budget Spending</h2>
+                    <FormControl component="fieldset">
+                        <RadioGroup row aria-label="date-range" name="dateRange" value={this.state.dateRange} >
+                            <FormControlLabel value="30" control={<Radio />} label="Last 30 days" onClick={()=>this.setDateRange("30")}/>
+                            <FormControlLabel value="21" control={<Radio />} label="Last 21 days" onClick={()=>this.setDateRange("21")}/>
+                            <FormControlLabel value="14" control={<Radio />} label="Last 14 days" onClick={()=>this.setDateRange("14")}/>
+                            <FormControlLabel value="7" control={<Radio />} label="Last 7 days" onClick={()=>this.setDateRange("7")}/>
+                        </RadioGroup>
+                    </FormControl>
+                </header>
+
+
+                {this.state.chartData && 
                 <ResponsiveBar
-                    data={this.getBarChartData()}
+                    data={this.state.chartData}
                     keys={["cost"]}
                     indexBy="dateLabel"
                     margin={ 
@@ -90,7 +98,9 @@ class BarChart extends React.Component {
                     motionDamping={15}
                     enableLabel={false}
                 />
-            </div>
+                }
+
+            </section>
         )
     }
 }

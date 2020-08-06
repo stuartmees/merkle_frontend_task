@@ -3,7 +3,7 @@ export default {
     axisBottom: {
         "tickSize": 5,
         "tickPadding": 5,
-        "tickRotation": 90,
+        "tickRotation": 0,
         "legend": "Date",
         "legendPosition": "middle",
         "legendOffset": 32

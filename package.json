@@ -29,6 +29,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@nivo/bar": "^0.62.0",
     "axios": "^0.19.2",
     "babel-plugin-transform-class-properties": "^6.24.1",

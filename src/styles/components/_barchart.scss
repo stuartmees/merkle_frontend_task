@@ -10,6 +10,26 @@
     svg {
         fill: $color-primary;
     }
+
+    .chart__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-weight: 400;
+            padding-left: 16px;
+        }
+    }
+
+    .MuiTypography-body1 {
+        font-size: 10px;
+        font-family: $font-body;
+    }
+
+    .PrivateSwitchBase-root-1 {
+        padding-right: 0px;
+    }
 }
    
 .chart:hover {
