@@ -1,3 +1,19 @@
 .index {
     @include container;
+
+    .index__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            background: white;
+            box-shadow: $panel-shadow;
+            border-radius: $border-radius;
+            height: 30px;
+            border: none;
+            font-family: $font-body;
+            padding-left: 5px;
+        }
+    }
 }
