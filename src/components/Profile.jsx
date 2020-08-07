@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { startSetProfile } from '../actions/profile.js'
 import BarChart from './BarChart'
 import Table from './Table'
+import PieChart from './PieChart'
 
 class Profile extends React.Component {
 
@@ -26,20 +27,20 @@ class Profile extends React.Component {
 
     render() {
 
-        const { profile } = this.props
-
         return(
                 <div className="profile">
-                    {!profile ? <h1 className="loading">Loading profile...</h1> : 
+                    {!this.props.profile ? <h1 className="loading">Loading profile...</h1> : 
                                 <header className="profile__header">
-                                    <h1>{profile.name}</h1>
-                                    <img src={profile.logo} alt="company logo"></img>
+                                    <h1>{this.props.profile.name}</h1>
+                                    <img src={this.props.profile.logo} alt="company logo"></img>
                                 </header>                
                     }
 
-                    {profile.data && <BarChart data={profile.data}/>}
+                    {this.props.profile && <BarChart data={this.props.profile.data}/>}
     
-                    {profile.data && <Table data={profile.data}/>}
+                    {this.props.profile && <Table data={this.props.profile.data}/>}
+
+                    {this.props.profile && <PieChart />}
      
                 </div>
         )

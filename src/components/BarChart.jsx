@@ -20,13 +20,14 @@ class BarChart extends React.Component {
     }
 
     componentDidMount() {
-        this.getBarChartData()
+        this.getBarChartData(this.state.dateRange)
     }
 
 
-    getBarChartData = () => {
+    getBarChartData = (dateRange) => {
 
-        const reducedDataArray = this.props.data.slice(this.props.data.length-this.state.dateRange)
+        console.log('getBarChartData')
+        const reducedDataArray = this.props.data.slice(this.props.data.length-dateRange)
 
         const chartData = reducedDataArray.map((item) => {
 
@@ -41,11 +42,13 @@ class BarChart extends React.Component {
 
         })
 
-        this.setState({ chartData }) 
+        console.log(chartData)
+
+        return chartData  
     }
 
     setDateRange = (dateRange) => {
-        this.setState({ dateRange }, this.getBarChartData)
+        this.setState({ dateRange })
     }
 
 
@@ -65,11 +68,9 @@ class BarChart extends React.Component {
                     </FormControl>
                 </header>
 
-
-                {this.state.chartData && 
                 <div className="chart">
                     <ResponsiveBar
-                        data={this.state.chartData}
+                        data={this.getBarChartData(this.state.dateRange)}
                         keys={["cost"]}
                         indexBy="dateLabel"
                         margin={ 
@@ -97,7 +98,6 @@ class BarChart extends React.Component {
                         enableLabel={false}
                     />
                 </div>
-                }
 
             </section>
         )

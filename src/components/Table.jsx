@@ -9,13 +9,11 @@ class Table extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.buildTotalsArray()
-    }
 
-    
+    getTotalsArray = () => {
 
-    buildTotalsArray = () => {
+        console.log('buildTotalsArray')
+
         let totalsArray=['30 Day Total', 0,0,0,0]
 
         totalsArray[1] = this.props.data.reduce((total, item) => {
@@ -34,9 +32,7 @@ class Table extends React.Component {
             return total + item.conversions
         },0)
 
-        this.setState({ 
-            totalsArray 
-        })
+        return totalsArray
     }
 
     formatDate = (rawDate) => {
@@ -92,7 +88,7 @@ class Table extends React.Component {
                 </div>
 
                 <div className="table__grid ">
-                    {totalsArray && totalsArray.map(total => <span className="grid__item grid__item--emphasis">{total}</span>)}
+                    {this.getTotalsArray().map(total => <span className="grid__item grid__item--emphasis">{total}</span>)}
                 </div>
 
 
