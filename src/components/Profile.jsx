@@ -25,16 +25,19 @@ class Profile extends React.Component {
     }
 
     render() {
+
+        const { profile } = this.props
+
         return(
             <div className="profile">
                 <header className="profile__header">
-                    <h1>{this.props.profile.name}</h1>
-                    <img src={this.props.profile.logo} alt="company logo"></img>
+                    <h1>{profile.name}</h1>
+                    <img src={profile.logo} alt="company logo"></img>
                 </header>
 
-                {this.props.profile && this.props.profile.data && <BarChart data={this.props.profile.data}/>}
+                {profile && profile.data && <BarChart data={profile.data}/>}
 
-                {this.props.profile && this.props.profile.data && <Table data={this.props.profile.data}/>}
+                {profile && profile.data && <Table data={profile.data}/>}
  
             </div>
 

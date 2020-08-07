@@ -23,16 +23,7 @@ class App extends React.Component {
         }
       }
     
-      componentDidMount() {
-        //   console.log('in CDM')
-        //   axios.get('/api/clients')
-        //     .then(clients => {
-        //         console.log('in axios in CDM')
-        //         this.setState({clients: clients.data})
-        //     })
-        //     .catch(err => {
-        //         this.setState({ error: err })
-        //     })    
+      componentDidMount() {  
         if (this.props.dispatch) this.props.dispatch(startSetClients())
       }
 

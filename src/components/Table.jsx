@@ -66,9 +66,9 @@ class Table extends React.Component {
                 <header className="table__header">
                     <h2>Client Daily Advertising Summary</h2>
                     <div className='table__nav'>
-                        <span onClick={() => this.changePage(-1)}>&#60;</span>
+                        <span className="table__nav__arrow" onClick={() => this.changePage(-1)}>&#60;</span>
                         <span>Displaying {startIndex+1} to {endIndex} days of 30 </span>
-                        <span onClick={() => this.changePage(1)}>&#62;</span>
+                        <span className="table__nav__arrow" onClick={() => this.changePage(1)}>&#62;</span>
                     </div>
                 </header>
 
