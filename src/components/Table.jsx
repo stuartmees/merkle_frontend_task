@@ -1,4 +1,5 @@
 import React from 'react'
+import formatDate from '../helpers/formatDate'
 
 class Table extends React.Component {
 
@@ -33,12 +34,6 @@ class Table extends React.Component {
         },0)
 
         return totalsArray
-    }
-
-    formatDate = (rawDate) => {
-            const dateObj = new Date(rawDate)
-            const date = dateObj.toLocaleDateString('en-GB', {dateStyle:"long"})
-            return date
     }
 
     changePage = (increment) => {
@@ -77,7 +72,7 @@ class Table extends React.Component {
                     {data && data.slice(startIndex, endIndex).map(day => {
                         return(
                             <>
-                            <span className="grid__item">{this.formatDate(day.date)}</span>
+                            <span className="grid__item">{formatDate(day.date)}</span>
                             <span className="grid__item">{day.cost}</span>
                             <span className="grid__item">{day.impressions}</span>
                             <span className="grid__item">{day.clicks}</span>

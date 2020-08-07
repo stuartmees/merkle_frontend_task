@@ -40,7 +40,7 @@ class Profile extends React.Component {
     
                     {this.props.profile && <Table data={this.props.profile.data}/>}
 
-                    {this.props.profile && <PieChart />}
+                    {this.props.profile && <PieChart data={this.props.profile.data}/>}
      
                 </div>
         )

@@ -1,8 +1,21 @@
+.MuiMenuItem-root {
+    font-family: $font-body;
+}
+
 .pie-chart {
     @include panel;
+    font-family: $font-body;
 
     .pie-chart__header {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // .pie-chart__click-conv-rate {}
+
+        .MuiFormHelperText-root, .MuiInputBase-root {
+            font-family: $font-body;
+        }
     }
     
     .chart{
@@ -21,6 +34,7 @@
             font-family: $font-body !important;
             font-size: 12px !important;
         }
+
     }
 }
 

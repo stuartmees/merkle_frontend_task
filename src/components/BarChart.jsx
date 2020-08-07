@@ -42,8 +42,6 @@ class BarChart extends React.Component {
 
         })
 
-        console.log(chartData)
-
         return chartData  
     }
 
@@ -83,19 +81,18 @@ class BarChart extends React.Component {
                         }
                         padding={0.3}
                         colors='nivo'
-                        colorBy="id"
                         borderColor="inherit:darker(1.6)"
                         axisTop={null}
                         axisRight={null}
                         axisBottom={config.axisBottom}
                         axisLeft={config.axisLeft}
-                        labelSkipWidth={12}
-                        labelSkipHeight={12}
-                        labelTextColor="inherit:darker(1.6)"
+                        // labelSkipWidth={12}
+                        // labelSkipHeight={12}
                         animate={true}
                         motionStiffness={90}
                         motionDamping={15}
                         enableLabel={false}
+                        tooltip={false}
                     />
                 </div>
 
