@@ -5,52 +5,49 @@ class Table extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            page: 0
+            page: 1
         }
     }
 
     componentDidMount() {
-        this.buildTableArrays()
+        this.buildTotalsArray()
     }
 
-    buildTableArrays = () => {
+    
 
-        let flatValuesArray = []
-        let valuesArray=[[],[],[]]
+    buildTotalsArray = () => {
         let totalsArray=['30 Day Total', 0,0,0,0]
 
-        this.props.data.map(item => {
+        totalsArray[1] = this.props.data.reduce((total, item) => {
+            return total + item.cost
+        },0)
 
-            const dateObj = new Date(item.date)
-            const date = dateObj.toLocaleDateString('en-GB', {dateStyle:"long"})
+        totalsArray[2] = this.props.data.reduce((total, item) => {
+            return total + item.impressions
+        },0)
 
-            flatValuesArray.push(date)
-            flatValuesArray.push(item.cost)
-            flatValuesArray.push(item.impressions)
-            flatValuesArray.push(item.clicks)
-            flatValuesArray.push(item.conversions)
+        totalsArray[3] = this.props.data.reduce((total, item) => {
+            return total + item.clicks
+        },0)
 
-            totalsArray[1] += item.cost
-            totalsArray[2] += item.impressions
-            totalsArray[3] += item.clicks
-            totalsArray[4] += item.conversions
-
-        })
-
-        valuesArray[0] = flatValuesArray.slice(0,50)
-        valuesArray[1] = flatValuesArray.slice(50,100)
-        valuesArray[2] = flatValuesArray.slice(100)
+        totalsArray[4] = this.props.data.reduce((total, item) => {
+            return total + item.conversions
+        },0)
 
         this.setState({ 
-            valuesArray,
             totalsArray 
         })
     }
 
-    changePage = (increment) => {
+    formatDate = (rawDate) => {
+            const dateObj = new Date(rawDate)
+            const date = dateObj.toLocaleDateString('en-GB', {dateStyle:"long"})
+            return date
+    }
 
-        if (this.state.page == 0 && increment === -1 ) return
-        if (this.state.page == 2 && increment === 1 ) return
+    changePage = (increment) => {
+        if (this.state.page == 1 && increment === -1 ) return
+        if (this.state.page == 3 && increment === 1 ) return
 
         const newPage = this.state.page + increment
 
@@ -58,13 +55,19 @@ class Table extends React.Component {
     }
 
     render(){
+
+        const { page, totalsArray } = this.state
+        const { data } = this.props
+        const startIndex = (page-1)*10
+        const endIndex = page*10
+
         return(
             <section className="table">
                 <header className="table__header">
                     <h2>Client Daily Advertising Summary</h2>
                     <div className='table__nav'>
                         <span onClick={() => this.changePage(-1)}>&#60;</span>
-                        <span>Displaying {this.state.page*10 + 1} to {(this.state.page + 1)*10} days of 30 </span>
+                        <span>Displaying {startIndex+1} to {endIndex} days of 30 </span>
                         <span onClick={() => this.changePage(1)}>&#62;</span>
                     </div>
                 </header>
@@ -75,11 +78,21 @@ class Table extends React.Component {
                     <span className="grid__item grid__header">Impressions</span>
                     <span className="grid__item grid__header">Clicks</span>
                     <span className="grid__item grid__header">Conversions</span>
-                    {this.state.valuesArray && this.state.valuesArray[this.state.page].map(item => <span className="grid__item">{item}</span>)}
+                    {data && data.slice(startIndex, endIndex).map(day => {
+                        return(
+                            <>
+                            <span className="grid__item">{this.formatDate(day.date)}</span>
+                            <span className="grid__item">{day.cost}</span>
+                            <span className="grid__item">{day.impressions}</span>
+                            <span className="grid__item">{day.clicks}</span>
+                            <span className="grid__item">{day.conversions}</span>
+                            </>
+                        )
+                    })}
                 </div>
 
                 <div className="table__grid ">
-                    {this.state.totalsArray && this.state.totalsArray.map(total => <span className="grid__item grid__item--emphasis">{total}</span>)}
+                    {totalsArray && totalsArray.map(total => <span className="grid__item grid__item--emphasis">{total}</span>)}
                 </div>
 
 
