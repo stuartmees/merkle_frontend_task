@@ -22,6 +22,8 @@ const Index = (props) => {
             </header>
 
             {props.clients.map(client => <IndexItem client={client} key={client.id}/>)}
+
+            {props.clients.length===0 && props.filters.searchTerm && <h2 className="index__no-clients">Sorry, no clients match your search term.</h2>}
         </div>
     )
 

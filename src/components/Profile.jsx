@@ -29,18 +29,19 @@ class Profile extends React.Component {
         const { profile } = this.props
 
         return(
-            <div className="profile">
-                <header className="profile__header">
-                    <h1>{profile.name}</h1>
-                    <img src={profile.logo} alt="company logo"></img>
-                </header>
+                <div className="profile">
+                    {!profile ? <h1 className="loading">Loading profile...</h1> : 
+                                <header className="profile__header">
+                                    <h1>{profile.name}</h1>
+                                    <img src={profile.logo} alt="company logo"></img>
+                                </header>                
+                    }
 
-                {profile && profile.data && <BarChart data={profile.data}/>}
-
-                {profile && profile.data && <Table data={profile.data}/>}
- 
-            </div>
-
+                    {profile.data && <BarChart data={profile.data}/>}
+    
+                    {profile.data && <Table data={profile.data}/>}
+     
+                </div>
         )
     }
 

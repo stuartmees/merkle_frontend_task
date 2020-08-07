@@ -15,6 +15,11 @@
         font-size: 30px;
         letter-spacing: 2px;
         color: palegoldenrod;
-        padding-left: 20px;
+        margin-left: 20px;
+        padding: 5px;
+
+        &:hover {
+            background-color: $color-primary-dark;
+        }
     }
 }

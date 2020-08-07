@@ -33,8 +33,8 @@ class App extends React.Component {
                 <main>
                     <NavBar />
                     <Switch>
-                        <Route path="/index" component={Index} />
-                        <Route path="/profile/:id" component={Profile} />
+                        <Route path="/client/:id" component={Profile} />
+                        <Route path="/" component={Index} />
                     </Switch>
                 </main>
         </Router>
