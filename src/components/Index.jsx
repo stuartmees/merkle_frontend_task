@@ -6,9 +6,11 @@ import setClientFilter from '../actions/filters'
 
 
 const Index = (props) => {
+
+    const { clients, filters, dispatch } = props
     
     const handleSetClientFilter = (value) => {
-        props.dispatch(setClientFilter(value))
+        dispatch(setClientFilter(value))
     }
 
     return(
@@ -16,18 +18,18 @@ const Index = (props) => {
 
             <header className="index__header">
                 <h1>Client Index</h1>
-                {props.filters.searchTerm && <button onClick={() => handleSetClientFilter('')}>Clear Search</button>}   
+                {filters.searchTerm && <button onClick={() => handleSetClientFilter('')}>Clear Search</button>}   
                 <input 
                     type="text"
                     placeholder=" Search for your client" 
-                    value={props.filters.searchTerm} 
+                    value={filters.searchTerm} 
                     onChange={(e) => handleSetClientFilter(e.target.value)} 
                 />
             </header>
 
-            {props.clients.map(client => <IndexItem client={client} key={client.id}/>)}
+            {clients.map(client => <IndexItem client={client} key={client.id}/>)}
 
-            {props.clients.length===0 && props.filters.searchTerm && <div className="index__no-clients"><p>Sorry, no clients match your search term.</p></div>}
+            {clients.length===0 && filters.searchTerm && <div className="index__no-clients"><p>Sorry, no clients match your search term.</p></div>}
 
         </div>
     )

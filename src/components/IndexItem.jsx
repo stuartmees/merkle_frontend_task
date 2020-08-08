@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 
 const IndexItem = (props) => {
 
+    const { id, name, logo } = props.client
+
     return(
-        <Link to={`/client/${props.client.id}`}>
+        <Link to={`/client/${id}`}>
             <div className="index__item">
-                <h2>{props.client.name}</h2>
-                <img src={props.client.logo} alt="company logo"></img>
+                <h2>{name}</h2>
+                <img src={logo} alt="company logo"></img>
             </div>
         </Link>
     )

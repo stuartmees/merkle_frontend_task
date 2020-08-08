@@ -15,7 +15,6 @@ class BarChart extends React.Component {
         super()
         this.state = {
             dateRange: "7",
-            chartData: ''
         }
     }
 
@@ -26,7 +25,6 @@ class BarChart extends React.Component {
 
     getBarChartData = (dateRange) => {
 
-        console.log('getBarChartData')
         const reducedDataArray = this.props.data.slice(this.props.data.length-dateRange)
 
         const chartData = reducedDataArray.map((item) => {
