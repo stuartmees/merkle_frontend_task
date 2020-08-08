@@ -1,21 +1,12 @@
 .index {
     @include container;
 
-    .index__no-clients {
-        height: 30px;
-        padding: 10px;
-        background-color: white;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        box-shadow: $panel-shadow;
-        text-align: center;
-    }
-
+    
     .index__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        
         input {
             background: white;
             box-shadow: $panel-shadow;
@@ -24,10 +15,66 @@
             border: none;
             font-family: $font-body;
             padding-left: 5px;
-
+            
             &:focus {
                 outline: none;
             }
         }
+    }
+
+    .index__no-clients {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 30px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: $panel-shadow;
+        text-align: center;
+        font-family: $font-body;
+    }
+
+    button {
+        border: 0;
+        border-radius: 0.25rem;
+        box-shadow: $panel-shadow;
+        height: 32px;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: $color-primary;
+        color: $color-text-higlight;
+        font-family: $font-header;
+        margin: auto 0;
+        outline: none;
+
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .index {
+        margin-top: 50px;
+
+        .index__header {
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 50px;
+            margin-top: 70px;
+
+            button {
+                order: 3;
+                margin-top: 20px;
+                margin-bottom: -20px;
+            }
+        }
+
+    .index__no-clients {
+        font-size: 15px;
+    }
     }
 }
