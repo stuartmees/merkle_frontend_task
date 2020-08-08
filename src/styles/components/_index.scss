@@ -66,10 +66,15 @@
             margin-bottom: 50px;
             margin-top: 70px;
 
+            input {
+                text-align: center;
+            }
+
             button {
                 order: 3;
-                margin-top: 20px;
+                margin-top: 23px;
                 margin-bottom: -20px;
+                width: 206px;
             }
         }
 
