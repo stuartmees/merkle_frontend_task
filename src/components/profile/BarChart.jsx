@@ -84,13 +84,10 @@ class BarChart extends React.Component {
                         axisRight={null}
                         axisBottom={config.axisBottom}
                         axisLeft={config.axisLeft}
-                        // labelSkipWidth={12}
-                        // labelSkipHeight={12}
                         animate={true}
                         motionStiffness={90}
                         motionDamping={15}
                         enableLabel={false}
-                        tooltip={false}
                     />
                 </div>
 

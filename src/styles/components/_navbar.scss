@@ -1,6 +1,7 @@
 .nav-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: $color-primary;
     position: fixed;
     top:0px;
@@ -8,6 +9,7 @@
     box-sizing: border-box;
     height: 50px;
     z-index: 5;
+    padding-right: 30px;
 
     h1 {
         font-family: $font-header;
@@ -21,5 +23,9 @@
         &:hover {
             background-color: $color-primary-dark;
         }
+    }
+
+    input {
+        box-shadow: none;
     }
 }

@@ -64,7 +64,7 @@ class PieChart extends React.Component {
                         >
                             {data.map((day, index) => {
                                 return (
-                                    <MenuItem value={index} onClick={() => this.setDate(index)}>{formatDate(day.date)}</MenuItem>
+                                    <MenuItem key={index} value={index} onClick={() => this.setDate(index)}>{formatDate(day.date)}</MenuItem>
                                 )
                             })}
                         </Select>

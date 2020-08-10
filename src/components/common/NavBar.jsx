@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import SearchForm from '../common/SearchForm'
 import setClientFilter from '../../actions/filters'
 
@@ -9,34 +9,36 @@ class NavBar extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            value: ''
+            searchTerm: ''
         }
     }
 
-        handleSubmit = (e) => {
-            e.preventDefault()
-            console.log('submitted')
-            // console.log(props.filters)
-            console.log(this.state.value)
-            this.props.dispatch(setClientFilter(this.state.value))
-        }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.setState({ searchTerm : ''}, this.props.history.push('/'))
+    }
 
-        handleChange = (value) => {
-            console.log('change')
-            console.log(value)
-            this.setState({value})
-        }
+    handleChange = (searchTerm) => {
+        this.setState({ searchTerm },() => this.props.dispatch(setClientFilter(searchTerm)))
+    }
 
-        render() {
-            return(
-                <nav className="nav-bar">
-                    <Link to={`/`}>
-                        <h1>Merkle</h1>
-                    </Link>
-                    <SearchForm onChange={(e) => this.handleChange(e.target.value)} value={this.state.value} onSubmit={(e) => this.handleSubmit(e)} />
-                </nav>
-            )
-        }
+    render() {
+
+        return(
+            <nav className="nav-bar">
+                <Link to={`/`}>
+                    <h1>Merkle</h1>
+                </Link>
+                {this.props.history.location.pathname!=="/" && 
+                    <SearchForm 
+                        onChange={(e) => this.handleChange(e.target.value)} 
+                        value={this.state.searchTerm} 
+                        onSubmit={(e) => this.handleSubmit(e)} 
+                        placeholder=" Search for another client..." 
+                    />}
+            </nav>
+        )
+    }
  
 }
 
@@ -47,4 +49,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(withRouter(NavBar));

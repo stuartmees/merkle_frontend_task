@@ -27,18 +27,12 @@ const Index = (props) => {
                 <header className="index__header">
                     <h1>Client Index</h1>
                     {filters.searchTerm && <button  onClick={() => handleSetClientFilter('')}>Clear Search</button>}
-                    {/* <form onSubmit={(e) => handleSubmit(e)} >
-                        <input
-                            type="text"
-                            placeholder=" Search for your client" 
-                            value={filters.searchTerm} 
-                            onChange={(e) => handleSetClientFilter(e.target.value)} 
-                        />
-                    </form> */}
+
                     <SearchForm 
                         onChange={(e) => handleSetClientFilter(e.target.value)}
                         onSubmit={null} 
-                        searchTerm={filters.searchTerm}
+                        value={filters.searchTerm}
+                        placeholder=" Search for your client..." 
                     />
                 </header>
             }

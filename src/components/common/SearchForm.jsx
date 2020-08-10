@@ -3,13 +3,15 @@ import React from 'react';
 
 const SearchForm = (props) => {
 
+    const { onSubmit, placeholder, value, onChange } = props
+
     return (
-        <form onSubmit={props.onSubmit} >
+        <form onSubmit={onSubmit} >
             <input
                 type="text"
-                placeholder=" Search for your client" 
-                value={props.searchTerm} 
-                onChange={props.onChange} 
+                placeholder={placeholder}
+                value={value} 
+                onChange={onChange} 
             />
         </form>
     )

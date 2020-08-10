@@ -67,21 +67,21 @@ class Table extends React.Component {
                     <span className="grid__item grid__header">Impressions</span>
                     <span className="grid__item grid__header">Clicks</span>
                     <span className="grid__item grid__header">Conversions</span>
-                    {data && data.slice(startIndex, endIndex).map(day => {
+                    {data && data.slice(startIndex, endIndex).map((day, index) => {
                         return(
-                            <>
-                            <span className="grid__item">{formatDate(day.date)}</span>
-                            <span className="grid__item">{day.cost}</span>
-                            <span className="grid__item">{day.impressions}</span>
-                            <span className="grid__item">{day.clicks}</span>
-                            <span className="grid__item">{day.conversions}</span>
-                            </>
+                            <React.Fragment key={index}>
+                                <span className="grid__item">{formatDate(day.date)}</span>
+                                <span className="grid__item">{day.cost}</span>
+                                <span className="grid__item">{day.impressions}</span>
+                                <span className="grid__item">{day.clicks}</span>
+                                <span className="grid__item">{day.conversions}</span>
+                            </React.Fragment>
                         )
                     })}
                 </div>
 
                 <div className="table__grid ">
-                    {this.getTotalsArray().map(total => <span className="grid__item grid__item--emphasis">{total}</span>)}
+                    {this.getTotalsArray().map((total, index) => <span key={index} className="grid__item grid__item--emphasis">{total}</span>)}
                 </div>
 
 
