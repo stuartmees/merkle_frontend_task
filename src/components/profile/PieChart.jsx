@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import formatDate from '../helpers/formatDate'
+import formatDate from '../../helpers/formatDate'
 
 class PieChart extends React.Component {
 
@@ -75,7 +75,8 @@ class PieChart extends React.Component {
                 <div className="chart">
                     <ResponsivePie
                         data={this.getChartData(dateIndex)}
-                        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+                        margin={{ top: 40, right: 0, bottom: 60, left: 0 }}
+                        enableRadialLabels={false}
                     />
                 </div>
 

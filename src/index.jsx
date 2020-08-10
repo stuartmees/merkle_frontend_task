@@ -1,4 +1,3 @@
-console.log('Hello Stu\'s Project.');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -9,7 +8,7 @@ import App from './components/App.jsx';
 
 const store = configureStore();
 
-class WrappedApp extends React.Component {
+class ConnectedApp extends React.Component {
     constructor(){
         super()
         this.state = {
@@ -25,4 +24,4 @@ class WrappedApp extends React.Component {
       }
 }
 
-ReactDOM.render(<WrappedApp />, document.getElementById('app'));
+ReactDOM.render(<ConnectedApp />, document.getElementById('app'));

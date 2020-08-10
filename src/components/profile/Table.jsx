@@ -1,5 +1,5 @@
 import React from 'react'
-import formatDate from '../helpers/formatDate'
+import formatDate from '../../helpers/formatDate'
 
 class Table extends React.Component {
 
@@ -12,8 +12,6 @@ class Table extends React.Component {
 
 
     getTotalsArray = () => {
-
-        console.log('buildTotalsArray')
 
         let totalsArray=['30 Day Total', 0,0,0,0]
 
@@ -47,7 +45,7 @@ class Table extends React.Component {
 
     render(){
 
-        const { page, totalsArray } = this.state
+        const { page } = this.state
         const { data } = this.props
         const startIndex = (page-1)*10
         const endIndex = page*10

@@ -7,9 +7,9 @@ import axios from 'axios';
 import 'normalize.css/normalize.css'
 import '../styles/styles.scss'
 
-import Index from './Index.jsx'
-import Profile from './Profile.jsx'
-import NavBar from './NavBar.jsx'
+import Index from './index/Index.jsx'
+import Profile from './profile/Profile.jsx'
+import NavBar from './common/NavBar.jsx'
 import { startSetClients } from '../actions/clients.js'
 
 
