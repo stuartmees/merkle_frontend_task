@@ -79,10 +79,16 @@ class PieChart extends React.Component {
                         enableRadialLabels={false}
                     />
                 </div>
-
-                <div className="pie-chart__click-conv-rate">
-                    Percentage of clicks converted into sales: {this.getClickConversion(dateIndex)}%
-                </div>
+                
+                <footer className="pie-chart__footer">
+                    <p className="pie-chart__click-conv-rate">
+                        Percentage of clicks converted into sales: {this.getClickConversion(dateIndex)}%
+                    </p>
+                    <div className="pie-chart__legend">
+                        <div>% of impressions converted to clicks<div className="converted"></div></div>
+                        <div>% of impressions not converted to clicks<div className="non-converted"></div></div>
+                    </div>
+                </footer>
             </section>
             
         )

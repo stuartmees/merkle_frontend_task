@@ -35,18 +35,72 @@
             font-family: $font-body !important;
             font-size: 12px !important;
         }
+    }
 
+    .pie-chart__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pie-chart__legend  {
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                div  {
+                    margin: 3px;
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                }
+
+                .converted {
+                    background-color: $color-primary-dark;
+                }
+
+                .non-converted {
+                    background-color: $color-primary-light;
+                }
+                
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 880px) {
+
+    .pie-chart {
+
+        .pie-chart__header {
+            flex-direction: column;
+    
+            h2 {
+                margin-bottom: 25px;
+            }
+        }
+
+        .pie-chart__footer {
+            flex-direction: column-reverse;
+            margin-top: -30px;
+
+            .pie-chart__legend {
+                margin-bottom: 25px;
+            }
+        }
     }
 }
 
 @media only screen and (max-width: 760px) {
     .pie-chart {
+
+        .pie-chart__header {
+            margin-bottom: -15px;
+        }
+
         .chart{
             width:90%;
-
-            // path {
-            //     margin: 0 auto;
-            // }
     }
 }
 }
