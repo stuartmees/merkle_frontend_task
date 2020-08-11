@@ -1,5 +1,4 @@
 export default {
-
     axisBottom: {
         "tickSize": 5,
         "tickPadding": 5,
@@ -16,4 +15,10 @@ export default {
         "legendPosition": "middle",
         "legendOffset": -60
     },
+    margin: {
+        "top": 50,
+        "right": 60,
+        "bottom": 100,
+        "left": 80
+    }
 }

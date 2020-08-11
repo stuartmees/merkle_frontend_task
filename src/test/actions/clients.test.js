@@ -27,7 +27,6 @@ test('setClientsError should setup set clients error action object', () => {
     });
 })
 
-
 test('startSetClients should successfully dipatch setClients action with clients sorted', () => {
     const response = {
         data: clients
