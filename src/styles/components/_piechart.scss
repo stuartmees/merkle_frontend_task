@@ -91,7 +91,7 @@
 
         .pie-chart__footer {
             flex-direction: column-reverse;
-            margin-top: -30px;
+            margin-top: -50px;
 
             .pie-chart__legend {
                 margin-bottom: 25px;
@@ -104,12 +104,25 @@
     .pie-chart {
 
         .pie-chart__header {
-            margin-bottom: -15px;
+            margin-bottom: -20px;
         }
-
+        
         .chart{
             width:90%;
     }
+}
+}
+
+@media only screen and (max-width: 600px) {
+    .pie-chart {
+
+        .pie-chart__header {
+            margin-bottom: -60px;
+        }
+
+        .pie-chart__footer {
+            margin-top: -100px;
+        }
 }
 }
 
