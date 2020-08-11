@@ -31,14 +31,14 @@ class PieChart extends React.Component {
             value: conversionRate
         }]
 
-        return(chartData)
+        return chartData
     }
 
     setDate = (index) => {
         this.setState({ dateIndex: index })
     }
 
-    getClickConversion = (index) => {
+    getSaleConversionRate = (index) => {
         const clicks = this.props.data[index]['clicks']
         const conversions = this.props.data[index]['conversions']
         const conversionRate = ((conversions/clicks)*100).toFixed(2)
@@ -52,7 +52,6 @@ class PieChart extends React.Component {
         const { dateIndex } = this.state
 
         return (
-
             <section className="pie-chart">
                 <header className="pie-chart__header">
                     <h2>Conversion Rates</h2>
@@ -77,12 +76,13 @@ class PieChart extends React.Component {
                         data={this.getChartData(dateIndex)}
                         margin={{ top: 40, right: 0, bottom: 60, left: 0 }}
                         enableRadialLabels={false}
+                        sliceLabel={(e) => e.value+" %"}
                     />
                 </div>
                 
                 <footer className="pie-chart__footer">
                     <p className="pie-chart__click-conv-rate">
-                        Percentage of clicks converted into sales: {this.getClickConversion(dateIndex)}%
+                        Percentage of clicks converted into sales: {this.getSaleConversionRate(dateIndex)}%
                     </p>
                     <div className="pie-chart__legend">
                         <div>% of impressions converted to clicks<div className="converted"></div></div>
@@ -90,7 +90,6 @@ class PieChart extends React.Component {
                     </div>
                 </footer>
             </section>
-            
         )
     }
 }

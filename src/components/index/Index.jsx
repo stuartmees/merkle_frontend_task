@@ -18,7 +18,6 @@ const Index = (props) => {
     const message = 'Sorry, there has been a problem getting your list of clients. Please try again later.'
 
     return(
-
         <div className="index">
             {errors==="clients" && clients.length===0 && <ErrorMsg message={message} />}
 

@@ -5,6 +5,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
+import formatDate from '../../helpers/formatDate'
 import config from '../../config/chartConfig'
 
 
@@ -24,20 +25,16 @@ class BarChart extends React.Component {
 
 
     getBarChartData = (dateRange) => {
+        const truncatedDataArray = this.props.data.slice(this.props.data.length-dateRange)
 
-        const reducedDataArray = this.props.data.slice(this.props.data.length-dateRange)
-
-        const chartData = reducedDataArray.map((item) => {
-
-            const dateObj = new Date(item.date)
-            const dateLabel = dateObj.toLocaleDateString('en-GB', {month:"short", day:"2-digit"})
+        const chartData = truncatedDataArray.map((item) => {
+            const dateLabel = formatDate(item.date, false)
 
             return {
                 cost: item.cost,
                 date: item.date,
                 dateLabel: dateLabel 
             }
-
         })
 
         return chartData  

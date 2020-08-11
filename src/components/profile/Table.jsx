@@ -12,7 +12,6 @@ class Table extends React.Component {
 
 
     getTotalsArray = (data) => {
-
         let totalsArray=['30 Day Total', 0,0,0,0]
         const keys = ['cost', 'impressions', 'clicks', 'conversions']
 
@@ -28,14 +27,12 @@ class Table extends React.Component {
     }
 
     changeTablePage = (increment) => {
-
         if (this.state.page == 1 && increment === -1 ) return
         if (this.state.page == 3 && increment === 1 ) return
 
         const newPage = this.state.page + increment
 
         this.setState({ page: newPage })
-
     }
 
     render(){
@@ -81,7 +78,6 @@ class Table extends React.Component {
             </section>
         )
     }
-
 }
 
 export default Table
