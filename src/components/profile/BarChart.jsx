@@ -51,7 +51,6 @@ class BarChart extends React.Component {
     render() {
         return (
             <section className="bar-chart">
-
                 <header className="bar-chart__header">
                     <h2>Client Budget Spending</h2>
                     <FormControl component="fieldset">
@@ -90,7 +89,6 @@ class BarChart extends React.Component {
                         enableLabel={false}
                     />
                 </div>
-
             </section>
         )
     }

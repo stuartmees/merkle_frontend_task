@@ -26,10 +26,9 @@ class Profile extends React.Component {
         const message = 'Sorry, there has been a problem getting this profile. Please try again later.'
 
         return(
+
                 <div className="profile">
-
                     {errors==="profile" && !profile && <ErrorMsg message={message} />}
-
                     {!profile && !errors && <h1 className="loading">Loading profile...</h1>}
 
                     {profile && !errors && 
@@ -39,16 +38,13 @@ class Profile extends React.Component {
                             <img src={profile.logo} alt="company logo"></img>
                         </header>                
         
-
                         <BarChart data={profile.data}/>
-
                         <Table data={profile.data}/>
-
                         <PieChart data={profile.data}/>
                         </>
                     } 
-     
                 </div>
+
         )
     }
 

@@ -8,7 +8,7 @@ const ErrorMsg = (props) => {
             <p>{props.message}</p>
         </div>
     )
-
+    
 }
 
 export default ErrorMsg

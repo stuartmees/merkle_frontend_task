@@ -16,11 +16,10 @@ export const startSetProfile = (id) => {
     return (dispatch) => {
         axios.get('/api/clients/'+id)
             .then(profile => {
-                console.log('in startSetProf')
                 dispatch(setProfile(profile.data))
             })
             .catch(err => {
-                console.log('in startSetProf error')
+                console.log('Error in recieving Profile'+id)
                 console.log(err)
                 dispatch(setProfileError())
             })

@@ -11,10 +11,18 @@
         justify-content: space-between;
         align-items: center;
 
-        // .pie-chart__click-conv-rate {}
-
         .MuiFormHelperText-root, .MuiInputBase-root {
             font-family: $font-body;
+        }
+
+        .MuiInputBase-root {
+            &:hover {
+                background-color: $color-bg-highlight;
+            }
+        }
+
+        .MuiInput-underline:hover:not(.Mui-disabled):before {
+            border-color: $color-primary;
         }
     }
     

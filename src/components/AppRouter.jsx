@@ -10,24 +10,9 @@ import '../styles/styles.scss'
 import Index from './index/Index.jsx'
 import Profile from './profile/Profile.jsx'
 import NavBar from './common/NavBar.jsx'
-import { startSetClients } from '../actions/clients.js'
 
+const AppRouter = () => {
 
-
-
-class App extends React.Component {
-
-    constructor(){
-        super()
-        this.state = {
-        }
-      }
-    
-      componentDidMount() {  
-        if (this.props.dispatch) this.props.dispatch(startSetClients())
-      }
-
-    render() {
         return(
             <Router>
                 <main>
@@ -40,6 +25,5 @@ class App extends React.Component {
         </Router>
         )
     }
-}
 
-export default connect()(App)
+export default connect()(AppRouter)

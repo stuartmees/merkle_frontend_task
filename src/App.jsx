@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import configureStore from './store/configureStore'
-import App from './components/App.jsx';
-
+import { startSetClients } from './actions/clients.js'
+import AppRouter from './components/AppRouter.jsx';
 
 const store = configureStore();
+store.dispatch(startSetClients())
 
-class ConnectedApp extends React.Component {
+class App extends React.Component {
     constructor(){
         super()
         this.state = {
@@ -18,10 +19,10 @@ class ConnectedApp extends React.Component {
       render() {
           return(
               <Provider store={store}>
-                  <App />
+                  <AppRouter />
               </Provider>
           )
       }
 }
 
-ReactDOM.render(<ConnectedApp />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

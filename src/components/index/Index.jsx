@@ -20,7 +20,6 @@ const Index = (props) => {
     return(
 
         <div className="index">
-
             {errors==="clients" && clients.length===0 && <ErrorMsg message={message} />}
 
             {errors!=='clients' &&      
@@ -39,8 +38,11 @@ const Index = (props) => {
 
             {errors!=='clients' && clients.length>0 && clients.map(client => <IndexItem client={client} key={client.id}/>)}
 
-            {errors!=='clients' && clients.length===0 && filters.searchTerm && <div className="index__no-clients"><p>Sorry, no clients match your search term.</p></div>}
-        
+            {errors!=='clients' && clients.length===0 && filters.searchTerm && 
+                <div className="index__no-clients">
+                    <p>Sorry, no clients match your search term.</p>
+                </div>
+            }
         </div>
     )
 }

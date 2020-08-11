@@ -25,3 +25,12 @@
     }
 
 }
+
+@media only screen and (max-width: 520px) {
+    .profile {
+        .profile__header {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}

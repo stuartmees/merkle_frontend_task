@@ -11,36 +11,31 @@ class Table extends React.Component {
     }
 
 
-    getTotalsArray = () => {
+    getTotalsArray = (data) => {
 
         let totalsArray=['30 Day Total', 0,0,0,0]
+        const keys = ['cost', 'impressions', 'clicks', 'conversions']
 
-        totalsArray[1] = this.props.data.reduce((total, item) => {
-            return total + item.cost
-        },0)
+        keys.forEach((key, index) => {
 
-        totalsArray[2] = this.props.data.reduce((total, item) => {
-            return total + item.impressions
-        },0)
+            totalsArray[index+1] = data.reduce((total, item) => {
+                return total + item[key]
+            },0)
 
-        totalsArray[3] = this.props.data.reduce((total, item) => {
-            return total + item.clicks
-        },0)
-
-        totalsArray[4] = this.props.data.reduce((total, item) => {
-            return total + item.conversions
-        },0)
+        })
 
         return totalsArray
     }
 
-    changePage = (increment) => {
+    changeTablePage = (increment) => {
+
         if (this.state.page == 1 && increment === -1 ) return
         if (this.state.page == 3 && increment === 1 ) return
 
         const newPage = this.state.page + increment
 
         this.setState({ page: newPage })
+
     }
 
     render(){
@@ -55,9 +50,9 @@ class Table extends React.Component {
                 <header className="table__header">
                     <h2>Client Daily Advertising Summary</h2>
                     <div className='table__nav'>
-                        <span className="table__nav__arrow" onClick={() => this.changePage(-1)}>&#60;</span>
+                        <span className="table__nav__arrow" onClick={() => this.changeTablePage(-1)}>&#60;</span>
                         <span>Displaying {startIndex+1} to {endIndex} days of 30 </span>
-                        <span className="table__nav__arrow" onClick={() => this.changePage(1)}>&#62;</span>
+                        <span className="table__nav__arrow" onClick={() => this.changeTablePage(1)}>&#62;</span>
                     </div>
                 </header>
 
@@ -81,10 +76,8 @@ class Table extends React.Component {
                 </div>
 
                 <div className="table__grid ">
-                    {this.getTotalsArray().map((total, index) => <span key={index} className="grid__item grid__item--emphasis">{total}</span>)}
+                    {this.getTotalsArray(data).map((total, index) => <span key={index} className="grid__item grid__item--emphasis">{total}</span>)}
                 </div>
-
-
             </section>
         )
     }
