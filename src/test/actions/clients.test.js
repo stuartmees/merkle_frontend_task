@@ -1,8 +1,8 @@
-import { setClients, setClientsError, startSetClients } from '../../actions/clients';
-import { clients } from '../data/clients';
 import axios from 'axios';
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+import { setClients, setClientsError, startSetClients } from '../../actions/clients';
+import { clients } from '../data/clients';
 
 jest.mock('axios');
 
