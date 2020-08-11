@@ -14,12 +14,13 @@ export const setClientsError = () => ({
 
 export const startSetClients = () => {
     return (dispatch) => {
-        axios.get('/api/clients')
+        return axios.get('/api/clients')
             .then(clients => {
                 const data = clients.data.sort((a, b) => (a.name > b.name) ? 1 : -1)
                 dispatch(setClients(data))
             })
             .catch(err => {
+                console.log('Error in recieving ciients list')
                 console.log(err)
                 dispatch(setClientsError())
             })

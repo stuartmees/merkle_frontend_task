@@ -14,7 +14,7 @@ export const setProfileError = () => ({
 
 export const startSetProfile = (id) => {
     return (dispatch) => {
-        axios.get('/api/clients/'+id)
+        return axios.get('/api/clients/'+id)
             .then(profile => {
                 dispatch(setProfile(profile.data))
             })

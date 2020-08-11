@@ -7,7 +7,6 @@ const filtersReducer = (state = filtersReducerDefaultObject, action) => {
     switch(action.type) {
         case 'SET_CLIENT_FILTER':
             return {
-                ...state,
                 searchTerm: action.searchTerm
             };
         default:
