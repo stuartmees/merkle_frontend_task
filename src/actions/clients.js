@@ -1,17 +1,20 @@
 import axios from 'axios';
 
+// set the array of clients to state
 export const setClients = (clients) => ({
     type: 'SET_CLIENTS',
     clients: clients,
     errors: ''
 });
 
+// set the client error to state if error after request
 export const setClientsError = () => ({
     type: 'SET_CLIENTS',
     clients: [],
     errors: 'clients'
 });
 
+// get the array of clients from the API
 export const startSetClients = () => {
     return (dispatch) => {
         return axios.get('/api/clients')
