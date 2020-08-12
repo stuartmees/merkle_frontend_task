@@ -9,20 +9,13 @@ import AppRouter from './components/AppRouter.jsx';
 const store = configureStore();
 store.dispatch(startSetClients())
 
-class App extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-        }
-      }
+const App = () => {
 
-      render() {
           return(
               <Provider store={store}>
                   <AppRouter />
               </Provider>
           )
-      }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));

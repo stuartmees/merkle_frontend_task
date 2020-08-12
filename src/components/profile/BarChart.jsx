@@ -12,8 +12,8 @@ import config from '../../config/chartConfig'
 
 class BarChart extends React.Component {
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             dateRange: "7",
         }
@@ -65,14 +65,7 @@ class BarChart extends React.Component {
                         data={this.getBarChartData(this.state.dateRange)}
                         keys={["cost"]}
                         indexBy="dateLabel"
-                        margin={ 
-                            {
-                            "top": 50,
-                            "right": 60,
-                            "bottom": 100,
-                            "left": 80
-                            }
-                        }
+                        margin={config.margin}
                         padding={0.3}
                         colors='nivo'
                         borderColor="inherit:darker(1.6)"
