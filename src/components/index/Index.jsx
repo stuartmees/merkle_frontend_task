@@ -35,13 +35,15 @@ const Index = (props) => {
                 </header>
             }
 
-            {errors!=='clients' && clients.length>0 && clients.map(client => <IndexItem client={client} key={client.id}/>)}
+            <main>
+                {errors!=='clients' && clients.length>0 && clients.map(client => <IndexItem client={client} key={client.id}/>)}
 
-            {errors!=='clients' && clients.length===0 && filters.searchTerm && 
-                <div className="index__no-clients">
-                    <p>Sorry, no clients match your search term.</p>
-                </div>
-            }
+                {errors!=='clients' && clients.length===0 && filters.searchTerm && 
+                    <div className="index__no-clients">
+                        <p>Sorry, no clients match your search term.</p>
+                    </div>
+                }
+            </main>
         </div>
     )
 }

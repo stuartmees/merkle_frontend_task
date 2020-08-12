@@ -34,17 +34,19 @@ class Profile extends React.Component {
                         <>
                         <header className="profile__header">
                             <h1>{profile.name}</h1>
-                            <img src={profile.logo} alt="company logo"></img>
+                            {profile.logo && <img src={profile.logo} alt="company logo"></img>}
                         </header>                
         
                         {profile.data ?
-                            <>                      
+                        <main>                      
                             <BarChart data={profile.data}/>  
                             <Table data={profile.data}/>
                             <PieChart data={profile.data}/>
-                            </>
-                        : 
+                        </main>
+                        :
+                        <main>
                             <ErrorMsg message={message} />
+                        </main> 
                         }
                         </>
                     } 
