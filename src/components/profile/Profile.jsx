@@ -37,9 +37,15 @@ class Profile extends React.Component {
                             <img src={profile.logo} alt="company logo"></img>
                         </header>                
         
-                        <BarChart data={profile.data}/>
-                        <Table data={profile.data}/>
-                        <PieChart data={profile.data}/>
+                        {profile.data ?
+                            <>                      
+                            <BarChart data={profile.data}/>  
+                            <Table data={profile.data}/>
+                            <PieChart data={profile.data}/>
+                            </>
+                        : 
+                            <ErrorMsg message={message} />
+                        }
                         </>
                     } 
                 </section>

@@ -52,48 +52,44 @@ class PieChart extends React.Component {
         const { dateIndex } = this.state
 
         return (
-            <>
-                {data && 
-                    <section className="pie-chart">
-                        <header className="pie-chart__header">
-                            <h2>Conversion Rates</h2>
-                            <FormControl className="form">
-                                <Select
-                                    labelId="date-select"
-                                    id="date-select"
-                                    value={dateIndex}
-                                >
-                                    {data.map((day, index) => {
-                                        return (
-                                            <MenuItem key={index} value={index} onClick={() => this.setDate(index)}>{formatDate(day.date)}</MenuItem>
-                                        )
-                                    })}
-                                </Select>
-                                <FormHelperText>Select a date to view</FormHelperText>
-                            </FormControl>
-                        </header>
+            <section className="pie-chart">
+                <header className="pie-chart__header">
+                    <h2>Conversion Rates</h2>
+                    <FormControl className="form">
+                        <Select
+                            labelId="date-select"
+                            id="date-select"
+                            value={dateIndex}
+                        >
+                            {data.map((day, index) => {
+                                return (
+                                    <MenuItem key={index} value={index} onClick={() => this.setDate(index)}>{formatDate(day.date)}</MenuItem>
+                                )
+                            })}
+                        </Select>
+                        <FormHelperText>Select a date to view</FormHelperText>
+                    </FormControl>
+                </header>
 
-                        <div className="chart">
-                            <ResponsivePie
-                                data={this.getChartData(dateIndex)}
-                                margin={{ top: 40, right: 0, bottom: 60, left: 0 }}
-                                enableRadialLabels={false}
-                                sliceLabel={(e) => e.value+" %"}
-                            />
-                        </div>
-                        
-                        <footer className="pie-chart__footer">
-                            <p className="pie-chart__click-conv-rate">
-                                Percentage of clicks converted into sales: {this.getSaleConversionRate(dateIndex)}%
-                            </p>
-                            <div className="pie-chart__legend">
-                                <div>% of impressions converted to clicks<div className="converted"></div></div>
-                                <div>% of impressions not converted to clicks<div className="non-converted"></div></div>
-                            </div>
-                        </footer>
-                    </section>
-                }
-            </>
+                <div className="chart">
+                    <ResponsivePie
+                        data={this.getChartData(dateIndex)}
+                        margin={{ top: 40, right: 0, bottom: 60, left: 0 }}
+                        enableRadialLabels={false}
+                        sliceLabel={(e) => e.value+" %"}
+                    />
+                </div>
+                
+                <footer className="pie-chart__footer">
+                    <p className="pie-chart__click-conv-rate">
+                        Percentage of clicks converted into sales: {this.getSaleConversionRate(dateIndex)}%
+                    </p>
+                    <div className="pie-chart__legend">
+                        <div>% of impressions converted to clicks<div className="converted"></div></div>
+                        <div>% of impressions not converted to clicks<div className="non-converted"></div></div>
+                    </div>
+                </footer>
+            </section>
         )
     }
 }
