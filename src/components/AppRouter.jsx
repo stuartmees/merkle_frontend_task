@@ -15,14 +15,12 @@ const AppRouter = () => {
 
         return(
             <Router>
-                <main>
                     <NavBar />
                     <Switch>
                         <Route path="/client/:id" component={Profile} />
                         <Route path="/" component={Index} />
                     </Switch>
-                </main>
-        </Router>
+            </Router>
         )
     }
 

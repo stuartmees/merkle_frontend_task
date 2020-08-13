@@ -10,7 +10,7 @@ class Table extends React.Component {
         }
     }
 
-
+    // calculate the 30 day totals of cost, impressions, clicks and conversions
     getTotalsArray = (data) => {
         let totalsArray=['30 Day Total', 0,0,0,0]
         const keys = ['cost', 'impressions', 'clicks', 'conversions']

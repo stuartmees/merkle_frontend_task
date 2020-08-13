@@ -15,6 +15,7 @@ class PieChart extends React.Component {
         }
     }
 
+    // get the data to pass to the pie chart
     getChartData = (index) => {
         const impressions = this.props.data[index]['impressions']
         const clicks = this.props.data[index]['clicks']
@@ -34,10 +35,12 @@ class PieChart extends React.Component {
         return chartData
     }
 
+    // change the date to view
     setDate = (index) => {
         this.setState({ dateIndex: index })
     }
 
+    // get the conversion rate from clicks to sales
     getSaleConversionRate = (index) => {
         const clicks = this.props.data[index]['clicks']
         const conversions = this.props.data[index]['conversions']

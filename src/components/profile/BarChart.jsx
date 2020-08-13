@@ -20,10 +20,10 @@ class BarChart extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.data)  this.getBarChartData(this.state.dateRange)
+        if (this.props.data) this.getBarChartData(this.state.dateRange)
     }
 
-
+    // get the data to pass to the bar chart
     getBarChartData = (dateRange) => {
         const truncatedDataArray = this.props.data.slice(this.props.data.length-dateRange)
 
@@ -40,6 +40,7 @@ class BarChart extends React.Component {
         return chartData  
     }
 
+    // get the range of days to view in the bar chart
     setDateRange = (dateRange) => {
         this.setState({ dateRange })
     }
