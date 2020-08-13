@@ -54,22 +54,22 @@ class Table extends React.Component {
                 </header>
 
                 <div className="table__grid">
-                    <span className="grid__item grid__header">Date</span>
-                    <span className="grid__item grid__header">Cost (£)</span>
-                    <span className="grid__item grid__header">Impressions</span>
-                    <span className="grid__item grid__header">Clicks</span>
-                    <span className="grid__item grid__header">Conversions</span>
-                    {data && data.slice(startIndex, endIndex).map((day, index) => {
-                        return(
-                            <React.Fragment key={index}>
-                                <span className="grid__item">{formatDate(day.date)}</span>
-                                <span className="grid__item">{day.cost}</span>
-                                <span className="grid__item">{day.impressions}</span>
-                                <span className="grid__item">{day.clicks}</span>
-                                <span className="grid__item">{day.conversions}</span>
-                            </React.Fragment>
-                        )
-                    })}
+                        <span className="grid__item grid__header">Date</span>
+                        <span className="grid__item grid__header">Cost (£)</span>
+                        <span className="grid__item grid__header">Impressions</span>
+                        <span className="grid__item grid__header">Clicks</span>
+                        <span className="grid__item grid__header">Conversions</span>
+                        {data && data.slice(startIndex, endIndex).map((day, index) => {
+                            return(
+                                <React.Fragment key={index}>
+                                    <span className="grid__item">{formatDate(day.date)}</span>
+                                    <span className="grid__item">{day.cost}</span>
+                                    <span className="grid__item">{day.impressions}</span>
+                                    <span className="grid__item">{day.clicks}</span>
+                                    <span className="grid__item">{day.conversions}</span>
+                                </React.Fragment>
+                            )
+                        })}
                 </div>
 
                 <div className="table__grid ">
