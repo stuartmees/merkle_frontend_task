@@ -17,6 +17,7 @@ class PieChart extends React.Component {
 
     // get the data to pass to the pie chart
     getChartData = (index) => {
+
         const impressions = this.props.data[index]['impressions']
         const clicks = this.props.data[index]['clicks']
         const conversionRate = Math.round((clicks/impressions)*100)
